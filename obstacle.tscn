@@ -11,13 +11,14 @@ position = Vector2(0, 427)
 script = ExtResource("1_tsfvq")
 
 [node name="Wall" parent="." instance=ExtResource("1_78l67")]
-position = Vector2(0, 75)
+position = Vector2(344, 75)
 
 [node name="Wall2" parent="." instance=ExtResource("1_78l67")]
-position = Vector2(0, -75)
+position = Vector2(344, -75)
 rotation = 3.14159
 
 [node name="ScoreArea" type="Area2D" parent="."]
+position = Vector2(344, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreArea"]
 position = Vector2(1, 1)

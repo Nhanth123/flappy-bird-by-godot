@@ -3,6 +3,7 @@ extends RigidBody2D
 class_name Player
 
 @export var FLAP_FORCE = -200
+
 @onready var animator = $AnimationPlayer
 
 const MAX_ROTATION_DEGREES = -30.0
@@ -28,7 +29,7 @@ func _physics_process(delta):
 func start():
 	if started: return
 	started = true
-	gravity_scale = 5.0
+	gravity_scale = 1.0
 	animator.play("flap")
 	
 func flap():

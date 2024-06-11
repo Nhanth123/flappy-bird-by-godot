@@ -8,7 +8,6 @@ func _physics_process(delta):
 	position.x += -SPEED * delta
 	if global_position.x <= 200:
 		queue_free()
-		print("bye")
 
 func _on_wall_body_entered(body):
 	if body is Player:

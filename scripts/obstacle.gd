@@ -6,7 +6,7 @@ const SPEED = 215
 
 func _physics_process(delta):
 	position.x += -SPEED * delta
-	if global_position.x <= -200:
+	if global_position.x <= -450:
 		queue_free()
 
 func _on_wall_body_entered(body):

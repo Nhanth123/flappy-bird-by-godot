@@ -2,7 +2,7 @@ extends RigidBody2D
 
 class_name Player
 
-@export var FLAP_FORCE = -200
+@export var FLAP_FORCE = -340
 
 @onready var animator = $AnimationPlayer
 
@@ -22,7 +22,7 @@ func _physics_process(delta):
 	
 	if linear_velocity.y > 0:
 		if rotation_degrees <= 90:
-			angular_velocity = 3
+			angular_velocity = 5
 		else:
 			angular_velocity = 0
 	
@@ -34,4 +34,4 @@ func start():
 	
 func flap():
 	linear_velocity.y = FLAP_FORCE
-	angular_velocity = -8
+	angular_velocity = -8.0

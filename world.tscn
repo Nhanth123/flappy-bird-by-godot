@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cp1top8jnkkhc"]
+[gd_scene load_steps=7 format=3 uid="uid://cp1top8jnkkhc"]
 
 [ext_resource type="Texture2D" uid="uid://b26kuhkvylqe6" path="res://assets/textures/background.png" id="1_gnf7u"]
 [ext_resource type="PackedScene" uid="uid://bv4w1ffxhtkgg" path="res://character/player/player.tscn" id="2_7vvon"]
+[ext_resource type="PackedScene" uid="uid://brupkieq4b28h" path="res://obstacle.tscn" id="2_bulpr"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="3_sdtiy"]
 [ext_resource type="PackedScene" uid="uid://bumub8lqu3qpo" path="res://obstacle_spawner.tscn" id="4_2mrex"]
 [ext_resource type="PackedScene" uid="uid://vwdf1y1ggyi2" path="res://ground.tscn" id="4_lpyfg"]
@@ -12,8 +13,10 @@
 texture = ExtResource("1_gnf7u")
 centered = false
 
+[node name="Obstacle" parent="." instance=ExtResource("2_bulpr")]
+
 [node name="ObstacleSpawner" parent="." instance=ExtResource("4_2mrex")]
-position = Vector2(600, 0)
+position = Vector2(447, 0)
 
 [node name="Ground" parent="." instance=ExtResource("4_lpyfg")]
 position = Vector2(0, 689)

@@ -10,7 +10,7 @@ const MAX_ROTATION_DEGREES = -30.0
 
 var started = false
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if Input.is_action_just_pressed("flap"):
 		if !started:
 			start()

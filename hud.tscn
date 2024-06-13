@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsbna1xpkxj83"]
+
+[ext_resource type="Script" path="res://scripts/hud.gd" id="1_38mv8"]
+[ext_resource type="FontFile" uid="uid://cjp2e5h6rewl6" path="res://assets/fonts/flappyfont.TTF" id="1_a3xyb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7eggx"]
+font = ExtResource("1_a3xyb")
+font_size = 40
+shadow_size = 10
+shadow_color = Color(0.242219, 0.161177, 0.0718412, 0.827451)
+shadow_offset = Vector2(3, 3)
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_38mv8")
+
+[node name="Score" type="Label" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 69.0
+grow_horizontal = 2
+text = "103838"
+label_settings = SubResource("LabelSettings_7eggx")
+horizontal_alignment = 1
+vertical_alignment = 1

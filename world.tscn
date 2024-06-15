@@ -26,3 +26,8 @@ position = Vector2(0, 689)
 [node name="Player" parent="." instance=ExtResource("2_7vvon")]
 position = Vector2(125, 427)
 script = ExtResource("3_sdtiy")
+
+[connection signal="body_entered" from="Ground/Deathzone" to="." method="_on_deathzone_body_entered"]
+[connection signal="died" from="Player" to="." method="_on_player_died"]
+
+[editable path="Ground"]

@@ -10,7 +10,6 @@ var highscore: int = 0
 func _ready():
 	obstacle_spawner.connect("obstacle_created", _on_obstacle_created)
 	hud.update_score(0)
-	new_game()
 
 func set_score(new_score):
 	score = new_score
@@ -39,3 +38,6 @@ func game_over():
 	obstacle_spawner.stop()
 	ground.get_node("AnimationPlayer").stop()
 	get_tree().call_group("obstacles", "set_physics_process", false)
+
+func _on_menu_start_game():
+	new_game()

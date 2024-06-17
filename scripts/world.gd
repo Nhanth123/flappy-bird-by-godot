@@ -18,7 +18,7 @@ func set_score(new_score):
 
 func player_score():
 	score += 1
-	print(score)
+	#print(score)
 
 func _on_obstacle_created(obs):
 	obs.connect("score", player_score)

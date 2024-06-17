@@ -59,8 +59,8 @@ libraries = {
 }
 autoplay = "scroll"
 
-[node name="DeathZone" type="Area2D" parent="."]
+[node name="Deathzone" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
-position = Vector2(241, 86)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deathzone"]
+position = Vector2(240, 87)
 shape = SubResource("RectangleShape2D_xcotw")

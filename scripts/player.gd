@@ -2,8 +2,6 @@ extends RigidBody2D
 
 class_name Player
 
-signal died
-
 @export var FLAP_FORCE = -340
 
 @onready var animator = $AnimationPlayer
@@ -12,6 +10,8 @@ const MAX_ROTATION_DEGREES = -30.0
 
 var started = false
 var alive = true
+
+signal died
 
 func _physics_process(_delta):
 	if Input.is_action_just_pressed("flap") && alive:
@@ -44,4 +44,4 @@ func die():
 	alive = false
 	animator.stop()
 	emit_signal("died")
-	
+

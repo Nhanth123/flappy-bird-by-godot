@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://dp5qwtys3wpvs"]
+
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_6v17s"]
+[ext_resource type="Texture2D" uid="uid://c3xpg302x2s2a" path="res://assets/textures/message.png" id="1_ajv64"]
+
+[node name="Menu" type="CanvasLayer"]
+script = ExtResource("1_6v17s")
+
+[node name="StartMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+
+[node name="StartMessage" type="TextureRect" parent="StartMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -138.0
+offset_top = -303.0
+offset_right = 138.0
+offset_bottom = 97.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ajv64")
+expand_mode = 1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0

@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://vwdf1y1ggyi2"]
+[gd_scene load_steps=7 format=3 uid="uid://vwdf1y1ggyi2"]
 
+[ext_resource type="PackedScene" uid="uid://dsbna1xpkxj83" path="res://scenes/hud.tscn" id="1_0dtg3"]
 [ext_resource type="Texture2D" uid="uid://k5endjddlyax" path="res://assets/textures/ground.png" id="1_erdnm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xcotw"]
@@ -43,6 +44,10 @@ _data = {
 }
 
 [node name="Ground" type="StaticBody2D"]
+
+[node name="HUD" parent="." instance=ExtResource("1_0dtg3")]
+
+[node name="Menu" type="CanvasLayer" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(1.5, 1.5)

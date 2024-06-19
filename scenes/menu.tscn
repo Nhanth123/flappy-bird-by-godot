@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dp5qwtys3wpvs"]
+[gd_scene load_steps=3 format=3 uid="uid://2ohaejl2y6lg"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_6v17s"]
 [ext_resource type="Texture2D" uid="uid://c3xpg302x2s2a" path="res://assets/textures/message.png" id="1_ajv64"]
@@ -8,18 +8,11 @@ script = ExtResource("1_6v17s")
 
 [node name="StartMenu" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 0
 
 [node name="StartMessage" type="TextureRect" parent="StartMenu"]
 layout_mode = 1
@@ -29,15 +22,14 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -138.0
-offset_top = -303.0
+offset_top = -317.0
 offset_right = 138.0
-offset_bottom = 97.0
+offset_bottom = 83.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_ajv64")
-expand_mode = 1
 
-[node name="Control" type="Control" parent="."]
+[node name="GameoverMenu" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0

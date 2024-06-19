@@ -4,7 +4,7 @@ signal obstacle_created(obs)
 
 @onready var timer = $Timer
 
-var Obstacle = preload("res://obstacle.tscn")
+var Obstacle = preload("res://scenes/obstacle.tscn")
 
 func _ready():
 	randomize()

@@ -39,3 +39,6 @@ func game_over():
 	obstacle_spawner.stop()
 	ground.get_node("AnimationPlayer").stop()
 	get_tree().call_group("obstacles", "set_physics_process", false)
+
+func _on_menu_start_game():
+	pass # Replace with function body.

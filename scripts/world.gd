@@ -9,7 +9,6 @@ var highscore: int = 0
 
 func _ready():
 	obstacle_spawner.connect("obstacle_created", _on_obstacle_created)
-	
 
 func set_score(new_score):
 	score = new_score

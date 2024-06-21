@@ -7,7 +7,6 @@
 script = ExtResource("1_6v17s")
 
 [node name="StartMenu" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -31,6 +30,7 @@ grow_vertical = 2
 texture = ExtResource("1_ajv64")
 
 [node name="GameoverMenu" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -38,18 +38,38 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ScoreLabel" type="Label" parent="GameoverMenu"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="VBoxContainer" type="VBoxContainer" parent="GameoverMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = -53.0
+offset_right = 68.0
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="ScoreLabel" type="Label" parent="GameoverMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/line_spacing = 3
 text = "SCORE:"
+horizontal_alignment = 1
 
-[node name="HighScoreLabel" type="Label" parent="GameoverMenu"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="HighScoreLabel" type="Label" parent="GameoverMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/line_spacing = 3
+text = "BEST: 0"
+horizontal_alignment = 1
 
-[node name="RestartBtn" type="Button" parent="GameoverMenu"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+[node name="RestartBtn" type="Button" parent="GameoverMenu/VBoxContainer"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+text = "RESTART"
+
+[connection signal="pressed" from="GameoverMenu/VBoxContainer/RestartBtn" to="." method="_on_restart_btn_pressed"]

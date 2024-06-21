@@ -6,6 +6,8 @@ var highscore: int = 0
 @onready var obstacle_spawner = $ObstacleSpawner
 @onready var hud = $HUD
 @onready var ground = $Ground
+@onready var menu = $Menu
+
 
 func _ready():
 	obstacle_spawner.connect("obstacle_created", _on_obstacle_created)
@@ -37,6 +39,7 @@ func game_over():
 	obstacle_spawner.stop()
 	ground.get_node("AnimationPlayer").stop()
 	get_tree().call_group("obstacles", "set_physics_process", false)
+	menu.init_game_over_menu(score)
 
 func _on_menu_start_game():
 	new_game()

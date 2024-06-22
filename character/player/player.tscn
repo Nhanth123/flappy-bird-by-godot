@@ -1,6 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bv4w1ffxhtkgg"]
+[gd_scene load_steps=9 format=3 uid="uid://bv4w1ffxhtkgg"]
 
 [ext_resource type="Texture2D" uid="uid://dx6bxlkgpmba4" path="res://assets/textures/bird.png" id="1_65fbg"]
+[ext_resource type="AudioStream" uid="uid://cyy8l42mcjj88" path="res://assets/audio/hit.wav" id="2_4udsb"]
+[ext_resource type="AudioStream" uid="uid://beahgkxwuja6e" path="res://assets/audio/wing.wav" id="2_rqv2m"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f5lof"]
 radius = 20.0
@@ -101,3 +103,9 @@ libraries = {
 "": SubResource("AnimationLibrary_dqplk")
 }
 autoplay = "idle"
+
+[node name="Hit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_4udsb")
+
+[node name="Wing" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_rqv2m")

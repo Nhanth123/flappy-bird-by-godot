@@ -8,10 +8,13 @@ var highscore: int = 0
 @onready var ground = $Ground
 @onready var menu = $Menu
 
+const save_file_path = "user://savedata_flappy_bird.save"
+
 
 func _ready():
 	obstacle_spawner.connect("obstacle_created", _on_obstacle_created)
-
+	load_score()
+	
 func set_score(new_score):
 	score = new_score
 	hud.update_score(score)
@@ -39,7 +42,28 @@ func game_over():
 	obstacle_spawner.stop()
 	ground.get_node("AnimationPlayer").stop()
 	get_tree().call_group("obstacles", "set_physics_process", false)
-	menu.init_game_over_menu(score)
+	
+	if score > highscore:
+		highscore = score
+		save_highscore()
+	
+	menu.init_game_over_menu(score, highscore)
 
 func _on_menu_start_game():
 	new_game()
+
+func save_highscore():
+	var file = FileAccess.open(save_file_path, FileAccess.WRITE)
+	file.store_var(highscore)
+	print("saving high score to disk...")
+	file.close()
+
+func load_score():
+	if FileAccess.file_exists(save_file_path):
+		var file = FileAccess.open(save_file_path, FileAccess.READ)
+		highscore = file.get_var()
+		print("Load score from file: " + str(highscore))
+		file.close()
+	else:
+		print("File doesn't exsit...")
+		highscore = 0

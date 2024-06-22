@@ -5,6 +5,8 @@ class_name Player
 @export var FLAP_FORCE = -340
 
 @onready var animator = $AnimationPlayer
+@onready var hit = $Hit
+@onready var wing = $Wing
 
 const MAX_ROTATION_DEGREES = -30.0
 
@@ -38,10 +40,12 @@ func start():
 func flap():
 	linear_velocity.y = FLAP_FORCE
 	angular_velocity = -8.0
+	wing.play()
 
 func die():
 	if !alive: return
 	alive = false
 	animator.stop()
+	hit.play()
 	emit_signal("died")
 

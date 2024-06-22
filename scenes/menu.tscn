@@ -68,7 +68,7 @@ text = "BEST: 0"
 horizontal_alignment = 1
 
 [node name="RestartBtn" type="Button" parent="GameoverMenu/VBoxContainer"]
-custom_minimum_size = Vector2(75, 0)
+custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 text = "RESTART"
 

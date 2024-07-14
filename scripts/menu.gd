@@ -20,18 +20,11 @@ func _input(event):
 func appear():
 	visible = true
 	
-	var tween = get_tree().create_tween()
-	tween.tween_property(self, "modulate:a", 1.0, fade_duration)
-	return tween
 	
 func disappear():
 	visible = false
 	start_message.visible = false
 	
-	var tween = get_tree().create_tween()
-	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
-	tween.tween_property(self, "modulate:a", 0, fade_duration)
-	return tween
 
 func init_game_over_menu(score, highscore):
 	gameover_menu.visible = true

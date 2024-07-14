@@ -13,6 +13,7 @@ const save_file_path = "user://savedata_flappy_bird.save"
 
 func _ready():
 	obstacle_spawner.connect("obstacle_created", _on_obstacle_created)
+	#hud.update_score(0)
 	load_score()
 	
 func set_score(new_score):
@@ -27,7 +28,6 @@ func _on_obstacle_created(obs):
 	obs.connect("score", player_score)
 
 func new_game():
-	hud.update_score(0)
 	obstacle_spawner.start()
 
 func _on_deathzone_body_entered(body):

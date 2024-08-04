@@ -16,7 +16,7 @@ func spawn_obstacle():
 	var obstacle = Obstacle.instantiate()
 	add_child(obstacle)
 	obstacle.position.y = randi()%400 + 150 #Get a random number between 150 - 550
-	emit_signal("obstacle_created", obstacle)
+	obstacle_created.emit(obstacle)
 	
 func start():
 	timer.start()

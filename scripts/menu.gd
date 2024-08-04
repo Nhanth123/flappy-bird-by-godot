@@ -7,7 +7,6 @@ signal start_game
 @onready var high_score_label = $GameoverMenu/VBoxContainer/HighScoreLabel
 @onready var gameover_menu = $GameoverMenu
 
-
 var game_started = false
 var fade_duration = 0.5
 
@@ -19,18 +18,18 @@ func _input(event):
 
 func appear():
 	visible = true
-	
-	
+
+
 func disappear():
 	visible = false
 	start_message.visible = false
 	
 
 func init_game_over_menu(score, highscore):
-	gameover_menu.visible = true
 	print("Go to game over screen")
 	score_label.text = "SCORE: " + str(score)
 	high_score_label.text = "BEST: " + str(highscore)
+	gameover_menu.visible = true
 
 func _on_restart_btn_pressed():
 	get_tree().reload_current_scene()

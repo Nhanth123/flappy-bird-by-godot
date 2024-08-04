@@ -86,8 +86,7 @@ _data = {
 "idle": SubResource("Animation_jmuy3")
 }
 
-[node name="Player" type="RigidBody2D"]
-gravity_scale = 0.0
+[node name="Player" type="RigidBody2D" groups=["player_group"]]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(2.08165e-12, -5)

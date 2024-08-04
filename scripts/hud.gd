@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@onready var score_label = $Score
-
-func update_score(new_score):
-	score_label.text = str(new_score)
+@onready var score_label = $ScoreLabel:
+	set(value):
+		score_label.text = str(value)
+	

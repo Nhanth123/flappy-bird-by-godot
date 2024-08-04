@@ -13,7 +13,7 @@ shadow_offset = Vector2(3, 3)
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_38mv8")
 
-[node name="Score" type="Label" parent="."]
+[node name="ScoreLabel" type="Label" parent="."]
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 69.0

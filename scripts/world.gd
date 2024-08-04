@@ -1,8 +1,5 @@
 extends Node2D
 
-var score: int  = 0
-var highscore: int = 0
-
 @onready var obstacle_spawner = $ObstacleSpawner
 @onready var hud = $HUD
 @onready var ground = $Ground
@@ -10,24 +7,30 @@ var highscore: int = 0
 
 const save_file_path = "user://savedata_flappy_bird.save"
 
+var player = null
+
+var score := 0:
+	set(value):
+		score = value
+		hud.score_label = score
+
+var highscore: int = 0
 
 func _ready():
-	obstacle_spawner.connect("obstacle_created", _on_obstacle_created)
-	#hud.update_score(0)
+	score = 0
+	obstacle_spawner.obstacle_created.connect(_on_obstacle_created)
 	load_score()
-	
-func set_score(new_score):
-	score = new_score
-	hud.update_score(score)
+	player = get_tree().get_first_node_in_group("player_group")
+	assert(player!=null)
 
-func player_score():
-	score += 1
-	set_score(score)
-
-func _on_obstacle_created(obs):
-	obs.connect("score", player_score)
+func _process(delta):
+	if Input.is_action_just_pressed("reset"):
+		get_tree().reload_current_scene()
+	if Input.is_action_just_pressed("quit"):
+		get_tree().quit()
 
 func new_game():
+	score = 0
 	obstacle_spawner.start()
 
 func _on_deathzone_body_entered(body):
@@ -51,7 +54,7 @@ func game_over():
 
 func _on_menu_start_game():
 	new_game()
-
+	
 func save_highscore():
 	var file = FileAccess.open(save_file_path, FileAccess.WRITE)
 	file.store_var(highscore)
@@ -67,3 +70,9 @@ func load_score():
 	else:
 		print("File doesn't exsit...")
 		highscore = 0
+
+func _on_player_got_score():
+	score = score + 1
+
+func _on_obstacle_created():
+	score = score + 1

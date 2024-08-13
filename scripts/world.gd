@@ -19,6 +19,7 @@ var highscore: int = 0
 func _ready():
 	score = 0
 	obstacle_spawner.obstacle_created.connect(_on_obstacle_created)
+	menu.start_game.connect(_on_menu_start_game)
 	load_score()
 	player = get_tree().get_first_node_in_group("player_group")
 	assert(player!=null)
@@ -70,9 +71,11 @@ func load_score():
 	else:
 		print("File doesn't exsit...")
 		highscore = 0
-
-func _on_player_got_score():
+		
+func _on_obs_player_score():
 	score = score + 1
+	print(score)
 
-func _on_obstacle_created():
-	score = score + 1
+func _on_obstacle_created(obs):
+	obs.score.connect(_on_obs_player_score)
+	

@@ -19,7 +19,6 @@ func _input(event):
 func appear():
 	visible = true
 
-
 func disappear():
 	visible = false
 	start_message.visible = false
@@ -27,6 +26,8 @@ func disappear():
 
 func init_game_over_menu(score, highscore):
 	print("Go to game over screen")
+	print(score)
+	print('high score: ', highscore)
 	score_label.text = "SCORE: " + str(score)
 	high_score_label.text = "BEST: " + str(highscore)
 	gameover_menu.visible = true

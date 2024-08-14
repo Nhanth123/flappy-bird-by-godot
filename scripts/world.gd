@@ -7,8 +7,6 @@ extends Node2D
 
 const save_file_path = "user://savedata_flappy_bird.save"
 
-var player = null
-
 var score := 0:
 	set(value):
 		score = value
@@ -21,8 +19,6 @@ func _ready():
 	obstacle_spawner.obstacle_created.connect(_on_obstacle_created)
 	menu.start_game.connect(_on_menu_start_game)
 	load_score()
-	player = get_tree().get_first_node_in_group("player_group")
-	assert(player!=null)
 
 func _process(delta):
 	if Input.is_action_just_pressed("reset"):
@@ -51,6 +47,7 @@ func game_over():
 		highscore = score
 		save_highscore()
 	
+	await get_tree().create_timer(1).timeout
 	menu.init_game_over_menu(score, highscore)
 
 func _on_menu_start_game():
@@ -59,22 +56,18 @@ func _on_menu_start_game():
 func save_highscore():
 	var file = FileAccess.open(save_file_path, FileAccess.WRITE)
 	file.store_var(highscore)
-	print("saving high score to disk...")
 	file.close()
 
 func load_score():
 	if FileAccess.file_exists(save_file_path):
 		var file = FileAccess.open(save_file_path, FileAccess.READ)
 		highscore = file.get_var()
-		print("Load score from file: " + str(highscore))
 		file.close()
 	else:
-		print("File doesn't exsit...")
 		highscore = 0
 		
 func _on_obs_player_score():
 	score = score + 1
-	print(score)
 
 func _on_obstacle_created(obs):
 	obs.score.connect(_on_obs_player_score)

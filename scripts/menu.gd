@@ -14,20 +14,9 @@ func _input(event):
 	if event.is_action_pressed("flap") && !game_started:
 		emit_signal("start_game")
 		game_started = true
-		disappear()
-
-func appear():
-	visible = true
-
-func disappear():
-	visible = false
-	start_message.visible = false
-	
+		start_message.visible = false
 
 func init_game_over_menu(score, highscore):
-	print("Go to game over screen")
-	print(score)
-	print('high score: ', highscore)
 	score_label.text = "SCORE: " + str(score)
 	high_score_label.text = "BEST: " + str(highscore)
 	gameover_menu.visible = true

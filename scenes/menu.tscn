@@ -1,7 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://2ohaejl2y6lg"]
+[gd_scene load_steps=6 format=3 uid="uid://2ohaejl2y6lg"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_6v17s"]
 [ext_resource type="Texture2D" uid="uid://c3xpg302x2s2a" path="res://assets/textures/message.png" id="1_ajv64"]
+[ext_resource type="FontFile" uid="uid://cjp2e5h6rewl6" path="res://assets/fonts/flappyfont.TTF" id="3_she0y"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1puu8"]
+line_spacing = 5.0
+font = ExtResource("3_she0y")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_i53va"]
+line_spacing = 5.0
+font = ExtResource("3_she0y")
+font_size = 20
 
 [node name="Menu" type="CanvasLayer"]
 script = ExtResource("1_6v17s")
@@ -58,18 +69,24 @@ layout_mode = 2
 theme_override_constants/shadow_offset_x = 3
 theme_override_constants/line_spacing = 3
 text = "SCORE: 234"
+label_settings = SubResource("LabelSettings_1puu8")
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="HighScoreLabel" type="Label" parent="GameoverMenu/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/shadow_offset_x = 3
 theme_override_constants/line_spacing = 3
 text = "BEST: 4344"
+label_settings = SubResource("LabelSettings_i53va")
 horizontal_alignment = 1
 
 [node name="RestartBtn" type="Button" parent="GameoverMenu/VBoxContainer"]
 custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 text = "RESTART"
+icon_alignment = 1
 
 [connection signal="pressed" from="GameoverMenu/VBoxContainer/RestartBtn" to="." method="_on_restart_btn_pressed"]

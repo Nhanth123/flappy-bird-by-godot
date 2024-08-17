@@ -47,5 +47,4 @@ func die():
 	alive = false
 	animator.stop()
 	hit.play()
-	emit_signal("died")
-
+	died.emit()

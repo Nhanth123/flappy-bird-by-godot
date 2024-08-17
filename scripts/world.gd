@@ -17,18 +17,14 @@ var highscore: int = 0
 func _ready():
 	score = 0
 	obstacle_spawner.obstacle_created.connect(_on_obstacle_created)
-	menu.start_game.connect(_on_menu_start_game)
 	load_score()
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("reset"):
 		get_tree().reload_current_scene()
 	if Input.is_action_just_pressed("quit"):
 		get_tree().quit()
 
-func new_game():
-	score = 0
-	obstacle_spawner.start()
 
 func _on_deathzone_body_entered(body):
 	if body is Player:
@@ -50,9 +46,7 @@ func game_over():
 	await get_tree().create_timer(1).timeout
 	menu.init_game_over_menu(score, highscore)
 
-func _on_menu_start_game():
-	new_game()
-	
+
 func save_highscore():
 	var file = FileAccess.open(save_file_path, FileAccess.WRITE)
 	file.store_var(highscore)
@@ -71,4 +65,3 @@ func _on_obs_player_score():
 
 func _on_obstacle_created(obs):
 	obs.score.connect(_on_obs_player_score)
-	

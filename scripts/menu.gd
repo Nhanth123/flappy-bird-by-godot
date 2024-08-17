@@ -12,13 +12,14 @@ var fade_duration = 0.5
 
 func _input(event):
 	if event.is_action_pressed("flap") && !game_started:
-		emit_signal("start_game")
+		start_game.emit()
 		game_started = true
 		start_message.visible = false
 
 func init_game_over_menu(score, highscore):
 	score_label.text = "SCORE: " + str(score)
 	high_score_label.text = "BEST: " + str(highscore)
+	start_message.visible = false
 	gameover_menu.visible = true
 
 func _on_restart_btn_pressed():

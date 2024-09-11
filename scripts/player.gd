@@ -2,6 +2,8 @@ extends RigidBody2D
 
 class_name Player
 
+signal start_game
+
 @export var FLAP_FORCE = -340
 
 @onready var animator = $AnimationPlayer
@@ -17,7 +19,8 @@ signal died
 
 func _physics_process(_delta):
 	if Input.is_action_just_pressed("flap") && alive:
-		if !started:
+		start_game.emit()
+		if started == true:
 			start()
 		flap()
 	
@@ -33,7 +36,9 @@ func _physics_process(_delta):
 	
 func start():
 	if started: return
+	
 	started = true
+	
 	gravity_scale = 1.0
 	animator.play("flap")
 	

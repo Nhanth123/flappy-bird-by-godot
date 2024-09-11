@@ -4,6 +4,7 @@ extends Node2D
 @onready var hud = $HUD
 @onready var ground = $Ground
 @onready var menu = $Menu
+@onready var player: Player = $Player
 
 const save_file_path = "user://savedata_flappy_bird.save"
 
@@ -15,9 +16,14 @@ var score := 0:
 var highscore: int = 0
 
 func _ready():
+	player.start_game.connect(_on_start_game_at_menu)
 	score = 0
 	obstacle_spawner.obstacle_created.connect(_on_obstacle_created)
 	load_score()
+
+func _on_start_game_at_menu():
+	player.started = true
+	
 
 func _process(_delta):
 	if Input.is_action_just_pressed("reset"):

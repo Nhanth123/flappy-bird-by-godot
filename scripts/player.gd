@@ -17,12 +17,18 @@ var alive = true
 
 signal died
 
+func _ready():
+	freeze = true
+
 func _physics_process(_delta):
 	if Input.is_action_just_pressed("flap") && alive:
-		start_game.emit()
-		if started == true:
+		if not started:
+			start_game.emit()
 			start()
 		flap()
+	
+	if not started:
+		return
 	
 	if rotation_degrees <= MAX_ROTATION_DEGREES:
 		angular_velocity = 0
@@ -38,11 +44,13 @@ func start():
 	if started: return
 	
 	started = true
-	
-	gravity_scale = 1.0
+	# Unfreeze the body so gravity and physics take effect
+	freeze = false
 	animator.play("flap")
 	
 func flap():
+	if freeze:
+		freeze = false
 	linear_velocity.y = FLAP_FORCE
 	angular_velocity = -8.0
 	wing.play()
